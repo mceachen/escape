@@ -9,6 +9,6 @@
 
 ## Usage:
 
-1. `cd ~/bin ; export PATH=$HOME/bin:$PATH ; git clone ...`
+1. `cd ~/bin ; export PATH=$HOME/bin:$PATH ; git clone https://github.com/mceachen/escape.git`
 2. `cd ~/Documents` # or wherever
 3. `find $(pwd) -name \*.pages -print0 | xargs -0 -n 1 -- p-to-doc`
