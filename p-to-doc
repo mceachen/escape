@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Given a .pages file, determine if it's already been converted. If it hasn't, 
+# send it to either the p3 or p5 converter scripts.
+
+# argv1 is expected to be a fully qualified path to a file.
+
+# find $(pwd) -name \*.pages -print0 | xargs -0 -n 1 -- p-to-doc
+
+f="$*"
+docx=${f%pages}docx
+if [[ -f "$docx" ]] ; then
+  echo "$docx already exists"
+elif [[ -f "$f/index.xml.gz" ]] ; then
+  echo "$f getting converted with Pages 3"
+  p3-to-doc.applescript "$f"
+else
+  echo "$f getting converted with Pages 5"
+  p5-to-doc.applescript "$f"
+fi
